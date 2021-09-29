@@ -1,0 +1,69 @@
+require:
+  - rubocop-i18n
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-thread_safety
+  - rubocop-faker
+
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - vendor/**/*
+    - bin/**
+    - db/schema.rb
+
+Style/Documentation:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - Gemfile
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**
+  Max: 50
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+# rubocop-i18n
+I18n/GetText/DecorateFunctionMessage:
+  Enabled: false
+
+# rubocop-rspec
+RSpec/ExampleLength:
+  Max: 20
+
+RSpec/NestedGroups:
+  Max: 4
+
+# rubocop doesn't understand custom example group 'permissions'
+# we can remove this exclusion after issue is resolved
+# https://github.com/rubocop-hq/rubocop-rspec/issues/333
+RSpec/RepeatedExample:
+  Exclude:
+    - spec/policies/**
+
+RSpec/MessageSpies:
+  Description: Use receive instead of have_received.
+  EnforcedStyle: receive
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/requests/**/*.rb'
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/requests/**/*.rb'
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+Lint/MissingSuper:
+  Enabled: false
