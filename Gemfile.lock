@@ -80,7 +80,6 @@ GEM
     graphql (1.12.16)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    jwt (2.2.3)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -145,7 +144,6 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.1.1)
     rexml (3.2.5)
-    rolify (6.0.0)
     rubocop (1.22.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
@@ -204,14 +202,12 @@ DEPENDENCIES
   bootsnap
   graphiql-rails
   graphql
-  jwt
   listen
   pg
   pry
   puma
   rack-cors
   rails
-  rolify
   rubocop
   rubocop-faker
   rubocop-i18n

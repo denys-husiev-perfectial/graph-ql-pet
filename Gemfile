@@ -8,12 +8,10 @@ ruby File.open('.ruby-version').readline.chomp.delete_prefix('ruby-').delete_suf
 gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'graphql'
-gem 'jwt'
 gem 'pg'
 gem 'puma'
 gem 'rack-cors'
 gem 'rails'
-gem 'rolify'
 
 group :development, :test do
   gem 'pry'
