@@ -2,8 +2,6 @@
 
 module Types
   class GoalStatusEnumType < Types::Base::Enum
-    Goal.statuses.each_key do |goal_status|
-      value goal_status
-    end
+    Goal.statuses.each_key { value _1 }
   end
 end

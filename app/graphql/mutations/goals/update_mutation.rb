@@ -13,7 +13,7 @@ module Mutations
       argument :progress, Integer, required: false
 
       def resolve(id:, **attributes)
-        Goal.find(id).tap { |user| user.update!(attributes) }
+        Goal.find(id).tap { _1.update!(attributes) }
       end
     end
   end
