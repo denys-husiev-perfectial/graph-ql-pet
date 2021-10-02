@@ -1,5 +1,14 @@
-# Instuctions to verify the app:
+# Run the app:
+```
+docker-compose build
+docker-compose up
+docker-compose run web rake db:create
+docker-compose run web rake db:migrate
+```
+### Go to:
+http://localhost:3000/graphiql
 
+in upper field put the queries and mutations, in lower field(QUERY VAIEABLES) put variables one by one
 ## create users
 ```
 mutation CreateUser($firstName: String!, $lastName: String!){
@@ -12,10 +21,12 @@ mutation CreateUser($firstName: String!, $lastName: String!){
 ```
 ### _variables_
 ```
+# 1
 {
   "firstName": "Denys",
   "lastName": "Husiev"
 }
+# 2
 {
   "firstName": "Mykola",
   "lastName": "Bokhonko"
@@ -45,26 +56,29 @@ mutation CreateGoal($userId: ID!, $approverId: ID, $name: String!){
 ```
 ### variables
 ```
+# 1
 {
-  "userId": 6,
-  "approverId": 7,
+  "userId": 1,
+  "approverId": 2,
   "name": "GraphQl - create small test application, connect with Rails, create few queries using Postman"
 }
+# 2
 {
-  "userId": 6,
-  "approverId": 7,
+  "userId": 1,
+  "approverId": 2,
   "name": "Improve knowledge in Docker technology. Dockerize rails app with postgresql"
 }
+# 3
 {
-  "userId": 6,
-  "approverId": 7,
+  "userId": 1,
+  "approverId": 2,
   "name": "Improve React knowledges. Pass the course on Udemy"
 }
 ```
 ## query a user and see all his goals
 ```
 {
-  user(id: 6) {
+  user(id: 1) {
     firstName
     lastName
     goals {
@@ -79,7 +93,7 @@ mutation CreateGoal($userId: ID!, $approverId: ID, $name: String!){
 ## query approver and see goals he needs to approve
 ```
 {
-  user(id: 7) {
+  user(id: 2) {
     firstName
     lastName
     goalsToApprove {
@@ -114,21 +128,25 @@ mutation UpdateGoal($id: ID!, $status: GoalStatusEnum!, $progress: Int) {
 ```
 ### variables
 ```
+# 1
 {
   "id": 1,
   "status": "in_progress",
   "progress": 50
 }
+# 2
 {
   "id": 2,
   "status": "done",
   "progress": 100
 }
+# 3
 {
   "id": 3,
   "status": "done",
   "progress": 100
 }
+# 4
 {
   "id": 1,
   "status": "done",

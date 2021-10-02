@@ -25,4 +25,4 @@ coverage
 .idea
 .irb_history
 .DS_Store
-
+.docker

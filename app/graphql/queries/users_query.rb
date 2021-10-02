@@ -2,7 +2,7 @@
 
 module Queries
   class UsersQuery < BaseQuery
-    type Types::UserType.connection_type, null: false
+    type [Types::UserType], null: false
     description 'Returns a list of users'
 
     def resolve
