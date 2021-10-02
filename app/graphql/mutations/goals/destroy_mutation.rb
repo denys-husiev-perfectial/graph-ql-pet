@@ -3,12 +3,12 @@
 module Mutations
   module Goals
     class DestroyMutation < Mutations::BaseMutation
-      type Types::UserType
+      type Types::GoalType
 
       argument :id, ID, required: true
 
       def resolve(id:)
-        User.find(id).destroy!
+        Goal.find(id).destroy!
       end
     end
   end

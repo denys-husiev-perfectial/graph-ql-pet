@@ -6,5 +6,5 @@ class User < ApplicationRecord
            dependent: :nullify,
            class_name: 'Goal',
            foreign_key: :approver_id,
-           inverse_of: :goal
+           inverse_of: :approver
 end

@@ -3,14 +3,17 @@
 module Mutations
   module Goals
     class UpdateMutation < Mutations::BaseMutation
-      type Types::UserType
+      type Types::GoalType
 
       argument :id, ID, required: true
-      argument :first_name, String, required: false
-      argument :last_name, String, required: false
+      argument :user_id, ID, required: false
+      argument :approver_id, ID, required: false
+      argument :name, String, required: false
+      argument :status, Types::GoalStatusEnumType, required: false
+      argument :progress, Integer, required: false
 
       def resolve(id:, **attributes)
-        User.find(id).tap { |user| user.update!(attributes) }
+        Goal.find(id).tap { |user| user.update!(attributes) }
       end
     end
   end
